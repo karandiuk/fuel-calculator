@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172554">
+  <title>Калькулятор витрати палива</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">⛽</div>
+      <div>
+        <p class="eyebrow">РОЗРАХУНОК ПРОБІГУ ТА ПАЛИВА</p>
+        <h1>Калькулятор витрати палива</h1>
+      </div>
+    </header>
+
+    <section id="vehicle-page" class="page">
+      <div class="intro">
+        <span class="step-label">КРОК 1 ІЗ 2</span>
+        <h2>Оберіть автомобіль</h2>
+        <p>Для кожного автомобіля використовуються власні норми витрати пального.</p>
+      </div>
+
+      <div class="vehicle-list" role="group" aria-label="Вибір автомобіля">
+        <button class="vehicle-card selected" type="button" data-vehicle="auto1" aria-pressed="true">
+          <span class="vehicle-icon" aria-hidden="true">🚗</span>
+          <span class="vehicle-copy">
+            <strong>Авто 129</strong>
+            <small>Норми витрати задані</small>
+          </span>
+          <span class="selection-mark" aria-hidden="true">✓</span>
+        </button>
+
+        <button class="vehicle-card" type="button" data-vehicle="auto2" aria-pressed="false">
+          <span class="vehicle-icon" aria-hidden="true">🚙</span>
+          <span class="vehicle-copy">
+            <strong>Авто 121</strong>
+            <small>Норми витрати задані</small>
+          </span>
+          <span class="selection-mark" aria-hidden="true">✓</span>
+        </button>
+
+        <button class="vehicle-card unavailable" type="button" data-vehicle="auto3" aria-pressed="false" aria-disabled="true">
+          <span class="vehicle-icon" aria-hidden="true">🚘</span>
+          <span class="vehicle-copy">
+            <strong>Авто 3</strong>
+            <small>Норми можна додати пізніше</small>
+          </span>
+          <span class="coming-soon">СКОРО</span>
+        </button>
+      </div>
+
+      <button id="continue-button" class="primary-button" type="button">
+        Продовжити <span aria-hidden="true">→</span>
+      </button>
+      <p class="page-note">Оберіть автомобіль, щоб перейти до введення пробігу.</p>
+    </section>
+
+    <section id="distance-page" class="page hidden">
+      <div class="page-heading-row">
+        <div class="intro">
+          <span class="step-label">КРОК 2 ІЗ 2</span>
+          <h2>Введіть пройдений шлях</h2>
+          <p>Вказуйте кілометри окремо для кожної категорії.</p>
+        </div>
+        <button id="back-button" class="back-button" type="button">← Автомобілі</button>
+      </div>
+
+      <div class="selected-vehicle">
+        <span class="vehicle-icon" aria-hidden="true">🚗</span>
+        <div>
+          <small>ОБРАНИЙ АВТОМОБІЛЬ</small>
+          <strong id="selected-vehicle-name">Авто 129</strong>
+        </div>
+        <span class="norm-tag">Норми л/100 км</span>
+      </div>
+
+      <div id="distance-fields" class="distance-fields">
+        <!-- Поля формуються з конфігурації автомобіля у script.js -->
+      </div>
+
+      <section class="result-card" aria-live="polite" aria-atomic="true">
+        <div class="result-topline">
+          <span>ЗАГАЛЬНА ВИТРАТА ПАЛЬНОГО</span>
+          <span class="live-indicator"><i></i> ОНЛАЙН-РОЗРАХУНОК</span>
+        </div>
+        <div class="result-value"><strong id="total-fuel">0,00</strong><span>л</span></div>
+        <div class="result-divider"></div>
+        <div class="result-bottom">
+          <span>Загальний пробіг</span>
+          <strong><span id="total-distance">0</span> км</strong>
+        </div>
+      </section>
+
+      <div class="formula-note">
+        <span class="formula-icon" aria-hidden="true">ƒx</span>
+        <p><strong>Формула:</strong> норма (л/100 км) ÷ 100 × пройдений шлях (км).</p>
+      </div>
+
+      <button id="clear-button" class="secondary-button" type="button">Очистити всі поля</button>
+      <p class="page-note">Розрахунок виконується у вашому браузері. Введені значення не надсилаються на сервер.</p>
+    </section>
+
+    <footer class="footer">
+      <span>Калькулятор витрати палива</span>
+      <span>Локальний розрахунок · Без бази даних</span>
+    </footer>
+  </main>
+</body>
+</html>
