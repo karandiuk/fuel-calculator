@@ -24,13 +24,13 @@ const VEHICLES = {
   // berdychiv: Міські умови (Бердичів)
   // outside: За межами населених пунктів
   auto2: {
-    name: "Авто 2",
+    name: "Авто 121",
     rates: {
-      general: null,
-      kyiv: null,
-      zhytomyr: null,
-      berdychiv: null,
-      outside: null
+      general: 10.9,
+      kyiv: 12.5,
+      zhytomyr: 12,
+      berdychiv: 11.4,
+      outside: 9.3
     }
   },
 
